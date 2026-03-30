@@ -1,0 +1,374 @@
+You are a senior full-stack + data engineer helping me build a production-grade portfolio website and project.
+
+Tech Stack (STRICT — do not change):
+
+Frontend: Next.js (App Router), TypeScript, Tailwind CSS, shadcn/ui
+Backend: FastAPI (async Python)
+Streaming: Kafka / Redpanda
+Database: ClickHouse
+Orchestration: Dagster
+
+mention it home, about, education, open source, projects, technical skills, achivements, certification, how i think like as an engineer, how i built this, contact
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+## How I Think as a Data Engineer
+
+**1. I think in failure modes, not success modes.**
+
+Every system I design, I start by asking: what can go wrong here?
+Not what goes right — that's easy. What goes wrong.
+- Network partition? → Kafka handles it.
+- Process crash? → Checkpoint handles it.
+- Duplicate message? → Idempotent write handles it.
+- Schema change? → Schema registry handles it.
+
+A pipeline that works under normal conditions is a prototype. A pipeline that recovers correctly from failure is a production system.
+
+**2. I think in data contracts, not data flows.**
+
+Data flowing through a pipe is easy to visualise. But what matters is the contract at each stage.
+- What schema does this topic expect?
+- What guarantees does this stage make to the next stage?
+- What happens when this contract is violated?
+
+If every stage enforces its contract, the whole system is reliable. If any stage is loose, the whole system is fragile.
+
+**3. I think about the downstream consumer first.**
+
+Before I design a pipeline, I ask: who reads this data, and what do they need?
+- An ML model needs: low latency, no nulls, consistent schema.
+- A BI dashboard needs: pre-aggregated, partitioned, fast queries.
+- A compliance audit needs: immutable, timestamped, queryable history.
+
+The consumer's needs determine the pipeline's design. Not the other way.
+
+**4. I think in trade-offs, not best practices.**
+
+There is no universally correct answer in data engineering.
+- Exactly-once is more correct but slower than at-least-once.
+- Event-time is more accurate but more complex than processing-time.
+- Normalised schema is cleaner but slower to query than denormalised.
+
+Every choice is a trade-off. My job is to understand the trade-off, make the right call for this context, and document why.
+
+**5. I think about cost alongside correctness.**
+
+A pipeline that processes 600K events/day perfectly but costs $10,000/month is not a good pipeline for a small company. Engineering decisions have cost implications. I think about:
+- How much data am I storing? Do I need all of it?
+- How often am I running this query? Can I cache it?
+- Am I using the right instance type for this workload?
+
+Correctness and cost efficiency are not opposites. Good engineering achieves both.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## How I Built These 6 Projects — My Process
+
+I didn't start with the code. I started with the problem.
+
+**Step 1 — Understand the business problem first**
+For every project, I asked: what is the actual cost of NOT having this pipeline?
+- P1: Fraud detected 4 hours late = money gone. That's real money.
+- P2: Bad data reaching dashboards = wrong decisions. That's real business impact.
+- P4: Database changes not captured = analytics 24 hours stale. That breaks real systems.
+
+If I can't explain the business problem in two sentences, I don't start building.
+
+**Step 2 — Design the architecture on paper before writing code**
+I draw the pipeline on paper first. Every component. Every arrow. Every failure point.
+Questions I answer before writing line 1:
+- What happens if this component crashes?
+- What happens if this component is slow?
+- What happens if data arrives out of order?
+- What happens if the schema changes?
+
+**Step 3 — Build the unhappy path first**
+Most tutorials build the happy path. Data comes in → gets processed → goes out. Done.
+I build the failure path first.
+- Dead letter queues before the main consumer.
+- Checkpoint configuration before the processing logic.
+- Schema validation before the business logic.
+
+If the failure path works, the happy path is easy.
+
+**Step 4 — Measure everything**
+I don't trust that a pipeline works unless I can see it working.
+- Event count per second (not per day — per second)
+- Consumer lag (are we keeping up or falling behind?)
+- Checkpoint age (when did we last save state?)
+- Error rate (what % of events are failing?)
+
+**Step 5 — Document the decisions, not just the code**
+Code explains what. Architecture Decision Records (ADRs) explain why.
+"Why Kafka over Kinesis?" — documented.
+"Why Parquet over Avro?" — documented.
+"Why session windows over sliding windows?" — documented.
+
+Future me (and future teammates) will thank present me.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+contact details:
+
+GitHub: https://github.com/sunildataengineer
+
+linkedin: https://www.linkedin.com/in/suniil-data-engineer/
+
+email: sunildataengineer@outlook.com
+
+phone number: +91 9380691205
+
+location: banasankari 3rd stage bangalore Karnataka 560085
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+education:
+
+Master of Computer Applications (MCA)                                                                                                                                       Jun 2022 – Mar 2023
+Himalayan Garhwal University  GPA: 8.0/10                                                                                                                                                                Uttarakhand, India
+Coursework: Distributed Systems, Database Management Systems, Big Data Analytics, Data Mining and Warehousing
+
+Bachelor of Computer Applications (BCA)                                                                                                                                    Mar 2019 – Jul 2021
+Himalayan Garhwal University   GPA: 7.55/10                                                                                                                                                             Uttarakhand, India
+Coursework: Data Structures and Algorithms, Database Management Systems, Operating Systems, Computer Networks
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+technical skills:
+
+Languages & Query: Python, SQL (Window Functions, CTEs, Joins, Query Optimization, Indexing)
+Core Skills: Data Pipelines, ETL/ELT, Batch & Streaming Processing, Data Warehousing
+Databases: SQL, Data Warehouses (Redshift, BigQuery)
+Big Data & Streaming: Apache Spark (PySpark), Apache Kafka, Apache Airflow, Apache Beam, Hadoop
+Cloud Computing: AWS (S3, Redshift, Glue, Kinesis)  ·  GCP (Pub/Sub, Dataflow, BigQuery)  ·  Azure (Event Hubs, Databricks, Data Factory)
+Data Engineering: ETL/ELT Pipelines, Data Pipelines, Data Modelling, Data Warehousing, Data Quality, Data Governance, Medallion Architecture
+Tools: Delta Lake, OpenTelemetry, Structured Logging, Git, Linux, CI/CD
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+certifications:
+
+AWS Certified Data Engineer – Associate  |  Amazon Web Services  |  Issued: Jan 2026                                                                     View Credential
+
+Databricks Certified Data Engineer Associate  |  Databricks  |  Issued: Feb 2026                                                                                View Credential
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+projects:
+
+1: Real-Time Fraud Detection (AWS)
+
+top features of these project
+
+CONFIDENCE SCORING ENGINE
+DEAD LETTER QUEUE WITH AUTO-REPLAY
+REAL-TIME FRAUD PATTERN DASHBOARD
+BEHAVIORAL BASELINE PER CUSTOMER
+GEO-VELOCITY FRAUD DETECTION
+
+skills for this project
+
+Apache Kafka
+Spark Structured Streaming
+PySpark
+Python
+Amazon S3
+Amazon Redshift
+Parquet
+
+link for this project:
+
+GitHub: https://github.com/sunildataengineer/Real-Time-Fraud-Anomaly-Detection-Streaming-Platform
+
+
+add a project demo button
+
+download a full architecture diagram pdf button
+
+download project report button 
+
+add a svg animation project diagram to this project
+
+implement live auto update GitHub integration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2: Data Quality & Governance (Azure)
+
+top features of these project
+
+QUALITY SCORE PER DATA SOURCE
+SCHEMA REGISTRY WITH VERSION CONTROL
+QUARANTINE AUTO-REPROCESSING
+DATA LINEAGE TRACKING
+SLA BREACH DETECTION
+
+skills for this project
+
+Azure Event Hubs
+Azure Databricks 
+Delta Lake
+PySpark
+Python
+Azure Data Factory
+
+
+link for this project:
+
+GitHub: https://github.com/sunildataengineer/Real-Time-Data-Quality-Streaming-Governance-Platform
+
+add a project demo button
+
+download a full architecture diagram pdf button
+
+download project report button
+
+add a svg animation project diagram to this project
+
+implement live auto update GitHub integration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3: Global Event Processing (GCP)
+
+top features of this project
+
+MULTI-REGION LATENCY TRACKING
+ADAPTIVE WATERMARK STRATEGY
+SESSION ANOMALY DETECTION
+CROSS-REGION EVENT CORRELATION
+REAL-TIME FUNNEL ANALYTICS
+
+skills for this project
+
+Google Pub/Sub  
+Cloud Dataflow  
+BigQuery 
+Apache Beam  
+Python  
+SQL
+
+link for this project:
+
+GitHub: https://github.com/sunildataengineer/Global-Real-Time-Event-Processing-Stateful-Streaming-Platform
+
+add a project demo button
+
+download a full architecture diagram pdf button
+
+download project report button
+
+add a svg animation project diagram to this project
+
+implement live auto update GitHub integration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+4: Real-Time CDC Database Replication Pipeline (AWS)
+
+top features of this project
+
+SCHEMA CHANGE AUTO-DETECTION
+MULTI-TABLE TRANSACTION ORDERING
+IMMUTABLE AUDIT LOG ON S3
+SNOWFLAKE MERGE IDEMPOTENCY
+CHANGE VELOCITY MONITORING
+
+skills for this project
+
+Google Pub/Sub
+Cloud Dataflow
+BigQuery
+Apache Beam
+Python
+SQL
+
+link for this project:
+
+GitHub: https://github.com/sunildataengineer/Real-Time-CDC-Database-Replication-Pipeline
+
+add a project demo button
+
+download a full architecture diagram pdf button
+
+download project report button
+
+add a svg animation project diagram to this project
+
+implement live auto update GitHub integration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+5: Real Time ML Feature Store Streaming Pipeline(AWS)
+
+top features of this project
+
+FEATURE DRIFT DETECTION
+POINT-IN-TIME CORRECT FEATURE LOOKUP
+FEATURE FRESHNESS SLA
+A/B FEATURE EXPERIMENT TRACKING
+ONLINE-OFFLINE CONSISTENCY CHECKER
+
+skills for this project
+
+Google Pub/Sub
+Cloud Dataflow
+BigQuery
+Apache Beam
+Python
+SQL
+
+link for this project:
+
+GitHub: https://github.com/sunildataengineer/Real-Time-ML-Feature-Store-Streaming-Pipeline
+
+add a project demo button
+
+download a full architecture diagram pdf button
+
+download project report button
+
+add a svg animation project diagram to this project
+
+implement live auto update GitHub integration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+6: Multi Cloud Real-Time Data-Lakehouse Apache Iceberg(AWS+GCP)
+
+top features of this project
+
+CROSS-CLOUD DATA SOVEREIGNTY ROUTING
+ICEBERG TIME TRAVEL AUDIT API
+AUTOMATIC ICEBERG TABLE OPTIMIZATION
+DBT DATA LINEAGE VISUALIZATION
+COST MONITORING PER CLOUD
+
+skills for this project
+
+Google Pub/Sub
+Cloud Dataflow
+BigQuery
+Apache Beam
+Python
+SQL
+
+link for this project:
+
+GitHub: https://github.com/sunildataengineer/Multi-Cloud-Real-Time-Data-Lakehouse---Apache-Iceberg
+
+add a project demo button
+
+download a full architecture diagram pdf button
+
+download project report button
+
+add a svg animation project diagram to this project
+
+implement live auto update GitHub integration
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,224 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    @keyframes scan6{0%{transform:translateY(-500px)}100%{transform:translateY(500px)}}
+    @keyframes np6{0%,100%{r:12;opacity:.4}50%{r:16;opacity:1}}
+    @keyframes pg6{0%,100%{stroke-opacity:.2}50%{stroke-opacity:.9}}
+    @keyframes pk6{0%{transform:translateX(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateX(115px);opacity:0}}
+    @keyframes pkU6{0%{transform:translateY(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateY(-65px);opacity:0}}
+    @keyframes pkD6{0%{transform:translateY(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateY(65px);opacity:0}}
+    @keyframes awsPulse{0%,100%{fill-opacity:.08}50%{fill-opacity:.25}}
+    @keyframes gcpPulse{0%,100%{fill-opacity:.08}50%{fill-opacity:.25}}
+    @keyframes dbtRun{0%,80%,100%{fill:#0A1A10;stroke-opacity:.3}81%,93%{fill:#0E2814;stroke-opacity:1}}
+    @keyframes trinoQuery{0%,75%,100%{opacity:.4}76%,90%{opacity:1}}
+    @keyframes mb6{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes compaction{0%,88%,100%{opacity:0}89%,97%{opacity:1}}
+    @keyframes crossCloud{0%{stroke-dashoffset:200}100%{stroke-dashoffset:0}}
+    .sc6{animation:scan6 6s linear infinite}
+    .n1{animation:np6 2s ease-in-out infinite}
+    .n2{animation:np6 2s ease-in-out infinite .4s}
+    .n3{animation:np6 2s ease-in-out infinite .8s}
+    .n4{animation:np6 2s ease-in-out infinite 1.2s}
+    .n5{animation:np6 2s ease-in-out infinite 1.6s}
+    .n6{animation:np6 2s ease-in-out infinite 2s}
+    .pg6{animation:pg6 2.5s ease-in-out infinite}
+    .p1{animation:pk6 2s linear infinite}
+    .p2{animation:pk6 2s linear infinite .65s}
+    .p3{animation:pk6 2s linear infinite 1.3s}
+    .p4{animation:pk6 2.2s linear infinite .3s}
+    .p5{animation:pk6 2.2s linear infinite 1.1s}
+    .p6{animation:pk6 2.3s linear infinite .6s}
+    .p7{animation:pk6 2.3s linear infinite 1.5s}
+    .pu1{animation:pkU6 2.5s linear infinite .8s}
+    .pu2{animation:pkU6 2.5s linear infinite 2.2s}
+    .pd1{animation:pkD6 2.2s linear infinite 1.1s}
+    .pd2{animation:pkD6 2.2s linear infinite 2.5s}
+    .awp{animation:awsPulse 3s ease-in-out infinite}
+    .gcp{animation:gcpPulse 3s ease-in-out infinite 1.5s}
+    .dbt{animation:dbtRun 5s ease-in-out infinite}
+    .tq{animation:trinoQuery 4s ease-in-out infinite}
+    .mb6{animation:mb6 2.5s ease-in-out infinite}
+    .cmp{animation:compaction 6s ease-in-out infinite}
+    .cc{animation:crossCloud 3s linear infinite;stroke-dasharray:8 4}
+  </style>
+  <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#030A0C"/>
+    <stop offset="100%" style="stop-color:#060E10"/>
+  </linearGradient>
+  <linearGradient id="top6" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#004455"/>
+    <stop offset="30%" style="stop-color:#0099BB"/>
+    <stop offset="70%" style="stop-color:#0066AA"/>
+    <stop offset="100%" style="stop-color:#004455"/>
+  </linearGradient>
+  <filter id="g6"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="sg6"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <marker id="aT6" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#00BBDD" opacity=".8"/></marker>
+  <marker id="aA6" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#FF9900" opacity=".8"/></marker>
+  <marker id="aG6" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4285F4" opacity=".8"/></marker>
+  <marker id="aGr6" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#00FF88" opacity=".8"/></marker>
+  <marker id="aU6" markerWidth="6" markerHeight="6" refX="3" refY="0" orient="auto"><path d="M0,6 L3,0 L6,6 Z" fill="#FF9900" opacity=".8"/></marker>
+  <marker id="aD6" markerWidth="6" markerHeight="6" refX="3" refY="6" orient="auto"><path d="M0,0 L3,6 L6,0 Z" fill="#4285F4" opacity=".8"/></marker>
+</defs>
+
+<rect width="900" height="500" fill="url(#bg6)"/>
+<g stroke="#00BBDD" stroke-width=".3" opacity=".04">
+  <line x1="0" y1="40" x2="900" y2="40"/><line x1="0" y1="80" x2="900" y2="80"/><line x1="0" y1="120" x2="900" y2="120"/>
+  <line x1="0" y1="160" x2="900" y2="160"/><line x1="0" y1="200" x2="900" y2="200"/><line x1="0" y1="240" x2="900" y2="240"/>
+  <line x1="0" y1="280" x2="900" y2="280"/><line x1="0" y1="320" x2="900" y2="320"/><line x1="0" y1="360" x2="900" y2="360"/>
+  <line x1="0" y1="400" x2="900" y2="400"/><line x1="0" y1="440" x2="900" y2="440"/>
+  <line x1="90" y1="0" x2="90" y2="500"/><line x1="180" y1="0" x2="180" y2="500"/><line x1="270" y1="0" x2="270" y2="500"/>
+  <line x1="360" y1="0" x2="360" y2="500"/><line x1="450" y1="0" x2="450" y2="500"/><line x1="540" y1="0" x2="540" y2="500"/>
+  <line x1="630" y1="0" x2="630" y2="500"/><line x1="720" y1="0" x2="720" y2="500"/><line x1="810" y1="0" x2="810" y2="500"/>
+</g>
+<rect class="sc6" width="900" height="35" fill="white" opacity=".012"/>
+<rect x="0" y="0" width="900" height="36" fill="url(#top6)"/>
+<text x="18" y="23" font-family="monospace" font-size="12" font-weight="bold" fill="white" letter-spacing="2">🌐 MULTI-CLOUD REAL-TIME DATA LAKEHOUSE — APACHE ICEBERG</text>
+<circle cx="625" cy="18" r="5" fill="#00FF88" filter="url(#g6)"/><circle cx="625" cy="18" r="4" fill="#00FF88"><animate attributeName="r" values="4;10;4" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/></circle>
+<text x="636" y="23" font-family="monospace" font-size="10" fill="#00FF88">LIVE</text>
+<text x="672" y="23" font-family="monospace" font-size="10" fill="white" opacity=".8">600K+ events/day</text>
+<text x="790" y="23" font-family="monospace" font-size="10" fill="#FF9900">AWS</text>
+<text x="822" y="23" font-family="monospace" font-size="10" fill="#4285F4">+GCP</text>
+
+<text x="450" y="68" text-anchor="middle" font-family="monospace" font-size="17" font-weight="bold" fill="white" letter-spacing="3" filter="url(#sg6)">MULTI-CLOUD DATA LAKEHOUSE WITH APACHE ICEBERG</text>
+<text x="450" y="86" text-anchor="middle" font-family="monospace" font-size="10" fill="#00BBDD" letter-spacing="2">KAFKA  ·  SPARK  ·  ICEBERG  ·  AWS S3  ·  GCP BIGQUERY  ·  TRINO  ·  DBT</text>
+
+<!-- Sources -->
+<g transform="translate(65,180)">
+  <rect x="-40" y="-30" width="80" height="60" rx="6" fill="#081010" stroke="#00BBDD" stroke-width="1.5" stroke-opacity=".7"/>
+  <circle cx="0" cy="-8" r="12" fill="#00BBDD" opacity=".12" class="n1"/>
+  <circle cx="0" cy="-8" r="12" fill="none" stroke="#00BBDD" stroke-width="1.5" filter="url(#g6)"/>
+  <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF" font-weight="bold">SRC</text>
+  <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">SOURCES</text>
+  <text x="0" y="22" text-anchor="middle" font-family="monospace" font-size="6" fill="#00BBDD">multi-domain</text>
+</g>
+
+<!-- Kafka -->
+<g transform="translate(200,180)">
+  <rect x="-40" y="-36" width="80" height="72" rx="6" fill="#081010" stroke="#00BBDD" stroke-width="1.5" stroke-opacity=".7"/>
+  <circle cx="0" cy="-12" r="12" fill="#00BBDD" opacity=".12" class="n2"/>
+  <circle cx="0" cy="-12" r="12" fill="none" stroke="#00BBDD" stroke-width="1.5" filter="url(#g6)"/>
+  <text x="0" y="-8" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF" font-weight="bold">MQ</text>
+  <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">KAFKA</text>
+  <text x="0" y="20" text-anchor="middle" font-family="monospace" font-size="6" fill="#00BBDD">3 topics</text>
+  <text x="0" y="30" text-anchor="middle" font-family="monospace" font-size="6" fill="#00BBDD">multi-domain</text>
+</g>
+
+<!-- Pipe src → kafka -->
+<line x1="105" y1="180" x2="160" y2="180" stroke="#00BBDD" stroke-width="1.8" class="pg6" marker-end="url(#aT6)"/>
+<circle cx="109" cy="180" r="4" fill="#00BBDD" class="p1" filter="url(#g6)"/>
+<circle cx="109" cy="180" r="4" fill="#00AABB" class="p2" filter="url(#g6)"/>
+<circle cx="109" cy="180" r="4" fill="#008899" class="p3" filter="url(#g6)"/>
+
+<!-- Spark + Iceberg writer -->
+<g transform="translate(370,180)">
+  <rect x="-50" y="-50" width="100" height="100" rx="8" fill="#080E10" stroke="#00BBDD" stroke-width="2" stroke-opacity=".8"/>
+  <circle cx="0" cy="-20" r="15" fill="#00BBDD" opacity=".1" class="n3"/>
+  <circle cx="0" cy="-20" r="15" fill="none" stroke="#00BBDD" stroke-width="2" filter="url(#g6)"/>
+  <text x="0" y="-16" text-anchor="middle" font-family="monospace" font-size="9" fill="#00DDFF" font-weight="bold">⚡</text>
+  <text x="0" y="-2" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">SPARK</text>
+  <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00BBDD">ICEBERG WRITER</text>
+  <text x="0" y="24" text-anchor="middle" font-family="monospace" font-size="6" fill="#888">schema validate</text>
+  <text x="0" y="35" text-anchor="middle" font-family="monospace" font-size="6" fill="#888">domain routing</text>
+  <text x="0" y="46" text-anchor="middle" font-family="monospace" font-size="6" fill="#00BBDD">ACID writes</text>
+</g>
+
+<!-- Pipe kafka → spark -->
+<line x1="240" y1="180" x2="320" y2="180" stroke="#00BBDD" stroke-width="1.8" class="pg6" marker-end="url(#aT6)"/>
+<circle cx="244" cy="180" r="4.5" fill="#00BBDD" class="p4" filter="url(#g6)"/>
+<circle cx="244" cy="180" r="4.5" fill="#009AAA" class="p5" filter="url(#g6)"/>
+
+<!-- AWS S3 + Iceberg -->
+<rect x="510" y="95" width="120" height="110" rx="6" fill="#FF9900" class="awp" opacity=".1"/>
+<rect x="510" y="95" width="120" height="110" rx="6" fill="none" stroke="#FF9900" stroke-width="1" stroke-opacity=".5"/>
+<text x="570" y="112" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#FF9900" font-weight="bold" letter-spacing="1">AWS S3</text>
+<g transform="translate(570,155)">
+  <rect x="-38" y="-28" width="76" height="56" rx="5" fill="#0C0C04" stroke="#FF9900" stroke-width="1.2" stroke-opacity=".7"/>
+  <circle cx="0" cy="-8" r="10" fill="#FF9900" opacity=".12" class="n4"/>
+  <circle cx="0" cy="-8" r="10" fill="none" stroke="#FF9900" stroke-width="1.2" filter="url(#g6)"/>
+  <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF9900" font-weight="bold">🧊</text>
+  <text x="0" y="10" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#888">ICEBERG</text>
+  <text x="0" y="20" text-anchor="middle" font-family="monospace" font-size="6" fill="#FF9900">ecom + raw</text>
+</g>
+
+<!-- GCP BigQuery + Iceberg -->
+<rect x="510" y="225" width="120" height="110" rx="6" fill="#4285F4" class="gcp" opacity=".08"/>
+<rect x="510" y="225" width="120" height="110" rx="6" fill="none" stroke="#4285F4" stroke-width="1" stroke-opacity=".5"/>
+<text x="570" y="242" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#4285F4" font-weight="bold" letter-spacing="1">GCP BIGQUERY</text>
+<g transform="translate(570,282)">
+  <rect x="-38" y="-28" width="76" height="56" rx="5" fill="#040810" stroke="#4285F4" stroke-width="1.2" stroke-opacity=".7"/>
+  <circle cx="0" cy="-8" r="10" fill="#4285F4" opacity=".12" class="n5"/>
+  <circle cx="0" cy="-10" r="10" fill="none" stroke="#4285F4" stroke-width="1.2" filter="url(#g6)"/>
+  <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="8" fill="#4285F4" font-weight="bold">🧊</text>
+  <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#888">ICEBERG</text>
+  <text x="0" y="20" text-anchor="middle" font-family="monospace" font-size="6" fill="#4285F4">finance + IoT</text>
+</g>
+
+<!-- Pipes spark → AWS + GCP -->
+<line x1="420" y1="152" x2="510" y2="140" stroke="#FF9900" stroke-width="1.8" class="pg6" marker-end="url(#aA6)"/>
+<line x1="420" y1="210" x2="510" y2="268" stroke="#4285F4" stroke-width="1.8" class="pg6" marker-end="url(#aG6)"/>
+<circle cx="422" cy="152" r="4" fill="#FF9900" class="pu1" filter="url(#g6)"/>
+<circle cx="422" cy="152" r="4" fill="#FF9900" class="pu2" filter="url(#g6)"/>
+<circle cx="422" cy="210" r="4" fill="#4285F4" class="pd1" filter="url(#g6)"/>
+<circle cx="422" cy="210" r="4" fill="#4285F4" class="pd2" filter="url(#g6)"/>
+
+<!-- Cross-cloud dashed line -->
+<line x1="570" y1="205" x2="570" y2="225" stroke="#00BBDD" stroke-width="1.5" class="cc" opacity=".6"/>
+<text x="636" y="218" font-family="monospace" font-size="6.5" fill="#00BBDD99">unified catalog</text>
+
+<!-- Trino -->
+<g transform="translate(730,180)">
+  <rect x="-46" y="-44" width="92" height="88" rx="7" fill="#080C10" stroke="#00FF88" stroke-width="1.8" stroke-opacity=".8"/>
+  <circle cx="0" cy="-16" r="14" fill="#00FF88" opacity=".1" class="n6"/>
+  <circle cx="0" cy="-16" r="14" fill="none" stroke="#00FF88" stroke-width="1.8" filter="url(#g6)"/>
+  <text x="0" y="-12" text-anchor="middle" font-family="monospace" font-size="9" fill="#00FF88" font-weight="bold">TRN</text>
+  <text x="0" y="4" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">TRINO</text>
+  <text x="0" y="18" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00FF88" class="tq">cross-cloud SQL</text>
+  <text x="0" y="29" text-anchor="middle" font-family="monospace" font-size="6" fill="#888">S3 + BQ in one</text>
+  <text x="0" y="40" text-anchor="middle" font-family="monospace" font-size="6" fill="#888">query engine</text>
+</g>
+
+<!-- Pipes iceberg → trino -->
+<line x1="630" y1="155" x2="684" y2="165" stroke="#FF9900" stroke-width="1.5" class="pg6" marker-end="url(#aA6)"/>
+<line x1="630" y1="282" x2="684" y2="200" stroke="#4285F4" stroke-width="1.5" class="pg6" marker-end="url(#aG6)"/>
+
+<!-- dbt label -->
+<rect x="650" y="265" width="100" height="40" rx="4" fill="#0A1A0A" stroke="#00FF88" stroke-width=".8" class="dbt"/>
+<text x="700" y="281" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="#00FF88">dbt MODELS</text>
+<text x="700" y="293" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00FF8899">Bronze→Silver→Gold</text>
+<line x1="730" y1="224" x2="720" y2="265" stroke="#00FF88" stroke-width="1.2" stroke-opacity=".5" class="pg6" marker-end="url(#aGr6)"/>
+
+<!-- Compaction alert -->
+<rect x="460" y="60" width="160" height="28" rx="3" fill="#080E04" stroke="#00FF88" stroke-width=".8" class="cmp"/>
+<text x="540" y="72" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#00FF88">🗜 TABLE COMPACTION RUNNING</text>
+<text x="540" y="82" text-anchor="middle" font-family="monospace" font-size="6" fill="#00FF8899">Iceberg OPTIMIZE → -60% query time</text>
+
+<!-- Metrics -->
+<line x1="18" y1="363" x2="882" y2="363" stroke="#0A1010" stroke-width="1"/>
+<g class="mb6"><text x="82" y="390" text-anchor="middle" font-family="monospace" font-size="19" font-weight="bold" fill="#00BBDD" filter="url(#g6)">600K+</text><text x="82" y="408" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">EVENTS/DAY</text></g>
+<line x1="165" y1="366" x2="165" y2="418" stroke="#0A1010" stroke-width="1"/>
+<g class="mb6"><text x="248" y="390" text-anchor="middle" font-family="monospace" font-size="19" font-weight="bold" fill="#FF9900" filter="url(#g6)">2</text><text x="248" y="408" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">CLOUDS</text></g>
+<line x1="330" y1="366" x2="330" y2="418" stroke="#0A1010" stroke-width="1"/>
+<g class="mb6"><text x="410" y="390" text-anchor="middle" font-family="monospace" font-size="19" font-weight="bold" fill="#4285F4" filter="url(#g6)">&lt;60s</text><text x="410" y="408" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">LATENCY</text></g>
+<line x1="490" y1="366" x2="490" y2="418" stroke="#0A1010" stroke-width="1"/>
+<g class="mb6"><text x="565" y="390" text-anchor="middle" font-family="monospace" font-size="19" font-weight="bold" fill="#00FF88" filter="url(#g6)">∞</text><text x="565" y="408" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">TIME TRAVEL</text></g>
+<line x1="640" y1="366" x2="640" y2="418" stroke="#0A1010" stroke-width="1"/>
+<g class="mb6"><text x="720" y="390" text-anchor="middle" font-family="monospace" font-size="19" font-weight="bold" fill="#00BBDD" filter="url(#g6)">60%↓</text><text x="720" y="408" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">QUERY TIME</text></g>
+<line x1="800" y1="366" x2="800" y2="418" stroke="#0A1010" stroke-width="1"/>
+<g class="mb6"><text x="843" y="390" text-anchor="middle" font-family="monospace" font-size="17" font-weight="bold" fill="#FF9900" filter="url(#g6)">0</text><text x="843" y="408" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">LOCK-IN</text></g>
+
+<!-- Bottom -->
+<rect x="0" y="432" width="900" height="68" fill="#030A0C"/>
+<text x="450" y="452" text-anchor="middle" font-family="monospace" font-size="9" fill="#333" letter-spacing="1">APACHE ICEBERG  ·  CROSS-CLOUD SQL  ·  DBT LINEAGE  ·  TABLE COMPACTION  ·  DATA SOVEREIGNTY ROUTING</text>
+<g transform="translate(40,462)"><rect x="0" y="0" width="55" height="22" rx="4" fill="#00BBDD20" stroke="#00BBDD50" stroke-width=".6"/><text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF">Kafka</text></g>
+<g transform="translate(108,462)"><rect x="0" y="0" width="55" height="22" rx="4" fill="#00BBDD20" stroke="#00BBDD50" stroke-width=".6"/><text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF">Spark</text></g>
+<g transform="translate(176,462)"><rect x="0" y="0" width="70" height="22" rx="4" fill="#00BBDD20" stroke="#00BBDD50" stroke-width=".6"/><text x="35" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF">Iceberg</text></g>
+<g transform="translate(259,462)"><rect x="0" y="0" width="55" height="22" rx="4" fill="#FF990020" stroke="#FF990050" stroke-width=".6"/><text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF9900">AWS S3</text></g>
+<g transform="translate(327,462)"><rect x="0" y="0" width="75" height="22" rx="4" fill="#4285F420" stroke="#4285F450" stroke-width=".6"/><text x="37" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#4285F4">BigQuery</text></g>
+<g transform="translate(415,462)"><rect x="0" y="0" width="55" height="22" rx="4" fill="#00FF8820" stroke="#00FF8850" stroke-width=".6"/><text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">Trino</text></g>
+<g transform="translate(483,462)"><rect x="0" y="0" width="45" height="22" rx="4" fill="#00FF8820" stroke="#00FF8850" stroke-width=".6"/><text x="22" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">dbt</text></g>
+<g transform="translate(541,462)"><rect x="0" y="0" width="65" height="22" rx="4" fill="#00BBDD20" stroke="#00BBDD50" stroke-width=".6"/><text x="32" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF">PySpark</text></g>
+<g transform="translate(619,462)"><rect x="0" y="0" width="55" height="22" rx="4" fill="#00BBDD20" stroke="#00BBDD50" stroke-width=".6"/><text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF">Python</text></g>
+<g transform="translate(687,462)"><rect x="0" y="0" width="50" height="22" rx="4" fill="#00BBDD20" stroke="#00BBDD50" stroke-width=".6"/><text x="25" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00DDFF">SQL</text></g>
+<rect x="0" y="496" width="900" height="4" fill="url(#top6)"/>
+</svg>

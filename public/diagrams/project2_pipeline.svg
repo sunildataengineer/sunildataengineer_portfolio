@@ -1,0 +1,322 @@
+<svg width="900" height="500" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <style>
+    @keyframes scan2{0%{transform:translateY(-500px)}100%{transform:translateY(500px)}}
+    @keyframes np1{0%,100%{r:12;opacity:.4}50%{r:16;opacity:1}}
+    @keyframes np2{0%,100%{r:12;opacity:.4}50%{r:16;opacity:1}}
+    @keyframes np3{0%,100%{r:12;opacity:.4}50%{r:16;opacity:1}}
+    @keyframes np4{0%,100%{r:12;opacity:.4}50%{r:16;opacity:1}}
+    @keyframes np5{0%,100%{r:12;opacity:.4}50%{r:16;opacity:1}}
+    @keyframes pipeGlow2{0%,100%{stroke-opacity:.2}50%{stroke-opacity:.8}}
+    @keyframes fp1{0%{transform:translateX(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateX(118px);opacity:0}}
+    @keyframes fp2{0%{transform:translateX(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateX(100px);opacity:0}}
+    @keyframes fp3{0%{transform:translateX(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateX(120px);opacity:0}}
+    @keyframes fp4{0%{transform:translateX(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateX(118px);opacity:0}}
+    @keyframes qUp{0%{transform:translateY(0);opacity:0}5%{opacity:1}90%{opacity:1}100%{transform:translateY(-65px);opacity:0}}
+    @keyframes bronzeF{0%,100%{fill-opacity:.12}50%{fill-opacity:.28}}
+    @keyframes silverF{0%,100%{fill-opacity:.1}50%{fill-opacity:.22}}
+    @keyframes goldF{0%,100%{fill-opacity:.1}50%{fill-opacity:.25}}
+    @keyframes ruleFlash{0%,74%,100%{fill:#040C18;stroke-opacity:.25}75%,90%{fill:#0A1A28;stroke-opacity:1}}
+    @keyframes rejectBlink{0%,89%,100%{opacity:0}90%,98%{opacity:1}}
+    @keyframes metricB{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    .s2{animation:scan2 6s linear infinite}
+    .n1b{animation:np1 2s ease-in-out infinite}
+    .n2b{animation:np2 2s ease-in-out infinite .5s}
+    .n3b{animation:np3 2s ease-in-out infinite 1s}
+    .n4b{animation:np4 2s ease-in-out infinite 1.5s}
+    .n5b{animation:np5 2s ease-in-out infinite 2s}
+    .pg2{animation:pipeGlow2 2.5s ease-in-out infinite}
+    .f1a{animation:fp1 2.1s linear infinite}
+    .f1b{animation:fp1 2.1s linear infinite .7s}
+    .f1c{animation:fp1 2.1s linear infinite 1.4s}
+    .f2a{animation:fp2 2.3s linear infinite .3s}
+    .f2b{animation:fp2 2.3s linear infinite 1.3s}
+    .f3a{animation:fp3 2.2s linear infinite .6s}
+    .f3b{animation:fp3 2.2s linear infinite 1.6s}
+    .f4a{animation:fp4 2.4s linear infinite .9s}
+    .f4b{animation:fp4 2.4s linear infinite 1.9s}
+    .qu1{animation:qUp 3.5s linear infinite 1s}
+    .qu2{animation:qUp 3.5s linear infinite 3s}
+    .br{animation:bronzeF 3s ease-in-out infinite}
+    .si{animation:silverF 3s ease-in-out infinite 1s}
+    .go{animation:goldF 3s ease-in-out infinite 2s}
+    .rl1b{animation:ruleFlash 6s ease-in-out infinite}
+    .rl2b{animation:ruleFlash 6s ease-in-out infinite 1s}
+    .rl3b{animation:ruleFlash 6s ease-in-out infinite 2s}
+    .rl4b{animation:ruleFlash 6s ease-in-out infinite 3s}
+    .rl5b{animation:ruleFlash 6s ease-in-out infinite 4s}
+    .rl6b{animation:ruleFlash 6s ease-in-out infinite 5s}
+    .rej{animation:rejectBlink 5s ease-in-out infinite}
+    .mb2{animation:metricB 2.5s ease-in-out infinite}
+  </style>
+  <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color:#020810"/>
+    <stop offset="100%" style="stop-color:#040C18"/>
+  </linearGradient>
+  <linearGradient id="topG2" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#003888"/>
+    <stop offset="50%" style="stop-color:#0078D4"/>
+    <stop offset="100%" style="stop-color:#003888"/>
+  </linearGradient>
+  <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" style="stop-color:#CD7F32;stop-opacity:.9"/>
+    <stop offset="100%" style="stop-color:#8B4A00;stop-opacity:.9"/>
+  </linearGradient>
+  <linearGradient id="silverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" style="stop-color:#E8E8E8;stop-opacity:.9"/>
+    <stop offset="100%" style="stop-color:#888;stop-opacity:.9"/>
+  </linearGradient>
+  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" style="stop-color:#FFD700;stop-opacity:.9"/>
+    <stop offset="100%" style="stop-color:#FF9900;stop-opacity:.9"/>
+  </linearGradient>
+  <filter id="glow2">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="sglow2">
+    <feGaussianBlur stdDeviation="7" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <marker id="aB2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#0099FF" opacity=".8"/>
+  </marker>
+  <marker id="aBr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#CD7F32" opacity=".8"/>
+  </marker>
+  <marker id="aSi" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#C0C0C0" opacity=".8"/>
+  </marker>
+  <marker id="aGo" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#FFD700" opacity=".8"/>
+  </marker>
+  <marker id="aRej" markerWidth="6" markerHeight="6" refX="3" refY="0" orient="auto">
+    <path d="M0,6 L3,0 L6,6 Z" fill="#FF4444" opacity=".8"/>
+  </marker>
+</defs>
+
+<!-- BG -->
+<rect width="900" height="500" fill="url(#bg2)"/>
+
+<!-- Grid -->
+<g stroke="#0078D4" stroke-width=".3" opacity=".04">
+  <line x1="0" y1="40" x2="900" y2="40"/><line x1="0" y1="80" x2="900" y2="80"/>
+  <line x1="0" y1="120" x2="900" y2="120"/><line x1="0" y1="160" x2="900" y2="160"/>
+  <line x1="0" y1="200" x2="900" y2="200"/><line x1="0" y1="240" x2="900" y2="240"/>
+  <line x1="0" y1="280" x2="900" y2="280"/><line x1="0" y1="320" x2="900" y2="320"/>
+  <line x1="0" y1="360" x2="900" y2="360"/><line x1="0" y1="400" x2="900" y2="400"/>
+  <line x1="0" y1="440" x2="900" y2="440"/>
+  <line x1="90" y1="0" x2="90" y2="500"/><line x1="180" y1="0" x2="180" y2="500"/>
+  <line x1="270" y1="0" x2="270" y2="500"/><line x1="360" y1="0" x2="360" y2="500"/>
+  <line x1="450" y1="0" x2="450" y2="500"/><line x1="540" y1="0" x2="540" y2="500"/>
+  <line x1="630" y1="0" x2="630" y2="500"/><line x1="720" y1="0" x2="720" y2="500"/>
+  <line x1="810" y1="0" x2="810" y2="500"/>
+</g>
+
+<!-- Scan -->
+<rect class="s2" width="900" height="40" fill="white" opacity=".01"/>
+
+<!-- Shimmer -->
+<rect width="200" height="36" y="0">
+  <animate attributeName="x" from="-200" to="1100" dur="4s" repeatCount="indefinite"/>
+  <animate attributeName="fill" values="#0099FF;#00CCFF;#0099FF" dur="4s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;.05;0" dur="4s" repeatCount="indefinite"/>
+</rect>
+
+<!-- Top bar -->
+<rect x="0" y="0" width="900" height="36" fill="url(#topG2)"/>
+<text x="18" y="23" font-family="monospace" font-size="12" font-weight="bold" fill="white" letter-spacing="2">◈ DATA QUALITY &amp; STREAMING GOVERNANCE PLATFORM</text>
+<circle cx="605" cy="18" r="5" fill="#00FF88" filter="url(#glow2)"/>
+<circle cx="605" cy="18" r="4" fill="#00FF88">
+  <animate attributeName="r" values="4;10;4" dur="2s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+</circle>
+<text x="617" y="23" font-family="monospace" font-size="10" fill="#00FF88">LIVE</text>
+<text x="660" y="23" font-family="monospace" font-size="10" fill="white" opacity=".8">200K+ records/day</text>
+<text x="820" y="23" font-family="monospace" font-size="10" fill="#00AAFF">AZURE</text>
+
+<!-- Title -->
+<text x="450" y="68" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="white" letter-spacing="4" filter="url(#sglow2)">MEDALLION ARCHITECTURE DATA PIPELINE</text>
+<text x="450" y="86" text-anchor="middle" font-family="monospace" font-size="10" fill="#0099FF" letter-spacing="3">BRONZE  →  SILVER  →  GOLD  ·  DELTA LAKE  ·  DATABRICKS</text>
+
+<!-- Medallion layer backgrounds -->
+<rect x="308" y="98" width="88" height="230" rx="5" fill="#CD7F32" class="br" opacity=".15"/>
+<text x="352" y="114" text-anchor="middle" font-family="monospace" font-size="8" fill="#CD7F32" font-weight="bold" letter-spacing="2">BRONZE</text>
+<text x="352" y="124" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#CD7F3299">RAW DATA</text>
+
+<rect x="398" y="98" width="88" height="230" rx="5" fill="#C0C0C0" class="si" opacity=".1"/>
+<text x="442" y="114" text-anchor="middle" font-family="monospace" font-size="8" fill="#C0C0C0" font-weight="bold" letter-spacing="2">SILVER</text>
+<text x="442" y="124" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#C0C0C099">VALIDATED</text>
+
+<rect x="488" y="98" width="88" height="230" rx="5" fill="#FFD700" class="go" opacity=".08"/>
+<text x="532" y="114" text-anchor="middle" font-family="monospace" font-size="8" fill="#FFD700" font-weight="bold" letter-spacing="2">GOLD</text>
+<text x="532" y="124" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#FFD70099">ANALYTICS</text>
+
+<!-- QUARANTINE -->
+<rect x="340" y="105" width="150" height="44" rx="5" fill="#180808" stroke="#FF4444" stroke-width="1.2">
+  <animate attributeName="stroke-opacity" values=".5;1;.5" dur="2s" repeatCount="indefinite"/>
+</rect>
+<text x="415" y="122" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#FF6644" class="rej">⛔ QUARANTINE</text>
+<text x="415" y="135" text-anchor="middle" font-family="monospace" font-size="7" fill="#FF444499">+ rejection_reason + rule_failed</text>
+<text x="415" y="145" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#FF222299">audit trail maintained</text>
+
+<!-- Quarantine pipe up -->
+<line x1="415" y1="195" x2="415" y2="149" stroke="#FF4444" stroke-width="1.5" stroke-opacity=".3" class="pg2" marker-end="url(#aRej)"/>
+<circle cx="415" cy="193" r="4" fill="#FF4444" class="qu1" filter="url(#glow2)"/>
+<circle cx="415" cy="193" r="4" fill="#FF6644" class="qu2" filter="url(#glow2)"/>
+
+<!-- NODE 1: SOURCES -->
+<g transform="translate(72,220)">
+  <rect x="-44" y="-36" width="88" height="72" rx="7" fill="#040C18" stroke="#0078D4" stroke-width="1.5" stroke-opacity=".65"/>
+  <circle cx="0" cy="-10" r="12" fill="#0078D4" opacity=".12" class="n1b"/>
+  <circle cx="0" cy="-10" r="12" fill="none" stroke="#0078D4" stroke-width="1.5" filter="url(#glow2)"/>
+  <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="9" fill="#4499FF" font-weight="bold">DATA</text>
+  <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">SOURCES</text>
+  <text x="0" y="26" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#4499FF">CRM·App·API</text>
+</g>
+
+<!-- PIPE 1 -->
+<line x1="116" y1="220" x2="200" y2="220" stroke="#0099FF" stroke-width="1.8" class="pg2" marker-end="url(#aB2)"/>
+<circle cx="120" cy="220" r="4.5" fill="#0099FF" class="f1a" filter="url(#glow2)"/>
+<circle cx="120" cy="220" r="4.5" fill="#0055CC" class="f1b" filter="url(#glow2)"/>
+<circle cx="120" cy="220" r="4.5" fill="#00CCFF" class="f1c" filter="url(#glow2)"/>
+
+<!-- NODE 2: EVENT HUBS -->
+<g transform="translate(242,220)">
+  <rect x="-42" y="-36" width="84" height="72" rx="7" fill="#030C18" stroke="#00AAFF" stroke-width="1.5" stroke-opacity=".65"/>
+  <circle cx="0" cy="-10" r="12" fill="#00AAFF" opacity=".12" class="n2b"/>
+  <circle cx="0" cy="-10" r="12" fill="none" stroke="#00AAFF" stroke-width="1.5" filter="url(#glow2)"/>
+  <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="8" fill="#33CCFF" font-weight="bold">EH</text>
+  <text x="0" y="10" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">EVENT HUBS</text>
+  <text x="0" y="24" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00AAFF">3 partitions</text>
+</g>
+
+<!-- PIPE 2 -->
+<line x1="284" y1="220" x2="318" y2="220" stroke="#CD7F32" stroke-width="1.8" class="pg2" marker-end="url(#aBr)"/>
+<circle cx="288" cy="220" r="4.5" fill="#CD7F32" class="f2a" filter="url(#glow2)"/>
+<circle cx="288" cy="220" r="4.5" fill="#AA6622" class="f2b" filter="url(#glow2)"/>
+
+<!-- NODE 3: DATABRICKS (CENTER) -->
+<g transform="translate(442,220)">
+  <rect x="-46" y="-44" width="92" height="88" rx="8" fill="#0A0810" stroke="#FF3621" stroke-width="2" stroke-opacity=".8"/>
+  <circle cx="0" cy="-14" r="16" fill="#FF3621" opacity=".1" class="n3b"/>
+  <circle cx="0" cy="-14" r="16" fill="none" stroke="#FF3621" stroke-width="2" filter="url(#glow2)"/>
+  <text x="0" y="-10" text-anchor="middle" font-family="monospace" font-size="10" fill="#FF5533" font-weight="bold">DBX</text>
+  <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="8" fill="#888">DATABRICKS</text>
+  <text x="0" y="18" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#FF3621">STREAMING</text>
+  <text x="0" y="32" text-anchor="middle" font-family="monospace" font-size="6" fill="#888">6 quality rules</text>
+</g>
+
+<!-- PIPE 3 -->
+<line x1="488" y1="220" x2="575" y2="220" stroke="#C0C0C0" stroke-width="1.8" class="pg2" marker-end="url(#aSi)"/>
+<circle cx="492" cy="220" r="4.5" fill="#C0C0C0" class="f3a" filter="url(#glow2)"/>
+<circle cx="492" cy="220" r="4.5" fill="#909090" class="f3b" filter="url(#glow2)"/>
+
+<!-- NODE 4: DELTA LAKE -->
+<g transform="translate(617,220)">
+  <rect x="-42" y="-36" width="84" height="72" rx="7" fill="#030C10" stroke="#00ADD8" stroke-width="1.5" stroke-opacity=".65"/>
+  <circle cx="0" cy="-10" r="12" fill="#00ADD8" opacity=".12" class="n4b"/>
+  <circle cx="0" cy="-10" r="12" fill="none" stroke="#00ADD8" stroke-width="1.5" filter="url(#glow2)"/>
+  <text x="0" y="-5" text-anchor="middle" font-family="monospace" font-size="14" fill="#00CCDD" font-weight="bold">Δ</text>
+  <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">DELTA LAKE</text>
+  <text x="0" y="26" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00ADD8">B→S→G layers</text>
+</g>
+
+<!-- PIPE 4 -->
+<line x1="659" y1="220" x2="740" y2="220" stroke="#FFD700" stroke-width="1.8" class="pg2" marker-end="url(#aGo)"/>
+<circle cx="663" cy="220" r="4.5" fill="#FFD700" class="f4a" filter="url(#glow2)"/>
+<circle cx="663" cy="220" r="4.5" fill="#FFA000" class="f4b" filter="url(#glow2)"/>
+
+<!-- NODE 5: ADF -->
+<g transform="translate(782,220)">
+  <rect x="-42" y="-36" width="84" height="72" rx="7" fill="#030810" stroke="#0078D4" stroke-width="1.5" stroke-opacity=".65"/>
+  <circle cx="0" cy="-10" r="12" fill="#0078D4" opacity=".12" class="n5b"/>
+  <circle cx="0" cy="-10" r="12" fill="none" stroke="#0078D4" stroke-width="1.5" filter="url(#glow2)"/>
+  <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="9" fill="#4499FF" font-weight="bold">ADF</text>
+  <text x="0" y="10" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">AZURE ADF</text>
+  <text x="0" y="24" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#0078D4">auto-restart</text>
+</g>
+
+<!-- QUALITY RULES PANEL -->
+<rect x="18" y="290" width="864" height="60" rx="4" fill="#030A14" stroke="#0078D420" stroke-width=".8"/>
+<text x="30" y="308" font-family="monospace" font-size="7.5" fill="#0099FF60" letter-spacing="1">QUALITY ENGINE — 6 RULES</text>
+<g transform="translate(130,290)">
+  <rect x="0" y="6" width="118" height="46" rx="3" class="rl1b" stroke="#0099FF" stroke-width=".8"/>
+  <text x="59" y="24" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#4499FF">NULL CHECK</text>
+  <text x="59" y="37" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">critical fields</text>
+  <text x="59" y="49" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#0099FF88">REJECT if null</text>
+</g>
+<g transform="translate(262,290)">
+  <rect x="0" y="6" width="118" height="46" rx="3" class="rl2b" stroke="#00BBFF" stroke-width=".8"/>
+  <text x="59" y="24" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#44CCFF">SCHEMA VALID</text>
+  <text x="59" y="37" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">types + formats</text>
+  <text x="59" y="49" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00BBFF88">REJECT if mismatch</text>
+</g>
+<g transform="translate(394,290)">
+  <rect x="0" y="6" width="118" height="46" rx="3" class="rl3b" stroke="#00DDFF" stroke-width=".8"/>
+  <text x="59" y="24" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#44EEFF">RANGE CHECK</text>
+  <text x="59" y="37" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">age 0-120, amt&gt;0</text>
+  <text x="59" y="49" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#00DDFF88">REJECT if OOB</text>
+</g>
+<g transform="translate(526,290)">
+  <rect x="0" y="6" width="118" height="46" rx="3" class="rl4b" stroke="#0066CC" stroke-width=".8"/>
+  <text x="59" y="24" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#4488DD">DEDUPLICATION</text>
+  <text x="59" y="37" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">same ID 24h window</text>
+  <text x="59" y="49" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#0066CC88">REJECT if dupe</text>
+</g>
+<g transform="translate(658,290)">
+  <rect x="0" y="6" width="218" height="46" rx="3" class="rl5b" stroke="#0055BB" stroke-width=".8"/>
+  <text x="109" y="24" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#4477CC">REFERENTIAL + BIZ RULES</text>
+  <text x="109" y="37" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">customer_id exists · payment valid</text>
+  <text x="109" y="49" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#005588">REJECT if violated</text>
+</g>
+
+<!-- METRICS -->
+<line x1="18" y1="370" x2="882" y2="370" stroke="#0A1020" stroke-width="1"/>
+<g class="mb2"><text x="90" y="397" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#0099FF" filter="url(#glow2)">200K+</text><text x="90" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">RECORDS/DAY</text></g>
+<line x1="178" y1="374" x2="178" y2="422" stroke="#0A1020" stroke-width="1"/>
+<g class="mb2"><text x="268" y="397" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#00FF88" filter="url(#glow2)">40%↓</text><text x="268" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">REJECTIONS</text></g>
+<line x1="355" y1="374" x2="355" y2="422" stroke="#0A1020" stroke-width="1"/>
+<g class="mb2"><text x="420" y="397" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#CD7F32" filter="url(#glow2)">3</text><text x="420" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">DELTA LAYERS</text></g>
+<line x1="468" y1="374" x2="468" y2="422" stroke="#0A1020" stroke-width="1"/>
+<g class="mb2"><text x="550" y="397" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#FFD700" filter="url(#glow2)">30%↓</text><text x="550" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">RECOVERY TIME</text></g>
+<line x1="630" y1="374" x2="630" y2="422" stroke="#0A1020" stroke-width="1"/>
+<g class="mb2"><text x="710" y="397" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#00ADD8" filter="url(#glow2)">6</text><text x="710" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">QUALITY RULES</text></g>
+<line x1="785" y1="374" x2="785" y2="422" stroke="#0A1020" stroke-width="1"/>
+<g class="mb2"><text x="842" y="397" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#00FF88" filter="url(#glow2)">0</text><text x="842" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">DATA LOSS</text></g>
+
+<!-- Bottom -->
+<rect x="0" y="432" width="900" height="68" fill="#020810"/>
+<text x="450" y="452" text-anchor="middle" font-family="monospace" font-size="9" fill="#333" letter-spacing="1">SCHEMA EVOLUTION  ·  BRONZE IMMUTABILITY  ·  DELTA MERGE  ·  AUTO-RESTART  ·  QUARANTINE AUDIT TRAIL</text>
+
+<g transform="translate(80,462)">
+  <rect x="0" y="0" width="75" height="22" rx="4" fill="#CD7F3220" stroke="#CD7F3250" stroke-width=".6"/>
+  <text x="37" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#CD7F32">Databricks</text>
+</g>
+<g transform="translate(168,462)">
+  <rect x="0" y="0" width="75" height="22" rx="4" fill="#00ADD820" stroke="#00ADD850" stroke-width=".6"/>
+  <text x="37" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00ADD8">Delta Lake</text>
+</g>
+<g transform="translate(256,462)">
+  <rect x="0" y="0" width="75" height="22" rx="4" fill="#0078D420" stroke="#0078D450" stroke-width=".6"/>
+  <text x="37" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#4499FF">Event Hubs</text>
+</g>
+<g transform="translate(344,462)">
+  <rect x="0" y="0" width="75" height="22" rx="4" fill="#E25A1C20" stroke="#E25A1C50" stroke-width=".6"/>
+  <text x="37" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#FF7744">PySpark</text>
+</g>
+<g transform="translate(432,462)">
+  <rect x="0" y="0" width="55" height="22" rx="4" fill="#3776AB20" stroke="#3776AB50" stroke-width=".6"/>
+  <text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#5599CC">Python</text>
+</g>
+<g transform="translate(500,462)">
+  <rect x="0" y="0" width="55" height="22" rx="4" fill="#0078D420" stroke="#0078D450" stroke-width=".6"/>
+  <text x="27" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#4499FF">ADF</text>
+</g>
+<g transform="translate(568,462)">
+  <rect x="0" y="0" width="75" height="22" rx="4" fill="#00FF8820" stroke="#00FF8850" stroke-width=".6"/>
+  <text x="37" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#00FF88">Apr 2025</text>
+</g>
+
+<rect x="0" y="496" width="900" height="4" fill="url(#topG2)"/>
+</svg>
