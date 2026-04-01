@@ -8,25 +8,25 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Sunil | Senior Data Engineer Portfolio',
-  description: 'Senior Data Engineer specializing in real-time streaming pipelines, Kafka, Spark, and cloud-native data platforms. AWS & Databricks certified.',
-  generator: 'v0.app',
+  title: 'Sunil | Data Engineer Portfolio',
+  description: 'Data Engineer specializing in real-time streaming pipelines, Kafka, Spark, and cloud-native data platforms. AWS & Databricks certified.',
+  generator: 'Sunilkumar',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '../public/images/profile.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '../public/images/profile.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
+        url: '../public/images/profile.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '../public/images/profile.png',
   },
 }
 

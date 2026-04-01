@@ -45,7 +45,7 @@ const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "education", label: "Education" },
-  { id: "opensource", label: "Open Source" },
+  // { id: "opensource", label: "Open Source" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "certifications", label: "Certifications" },
@@ -712,7 +712,7 @@ export default function PortfolioPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    I&apos;m a Senior Data Engineer with expertise in building real-time streaming pipelines 
+                    I&apos;m I am Data Engineer with expertise in building real-time streaming pipelines 
                     and data platforms. My focus is on creating reliable, scalable systems that handle 
                     millions of events while maintaining data quality and governance.
                   </p>
@@ -722,35 +722,35 @@ export default function PortfolioPage() {
                     data contracts, and always considering the downstream consumer.
                   </p>
                 </div>
-                <div className="space-y-4">
-                  <h3 className="font-semibold text-foreground">Tech Stack I Work With:</h3>
-                  <div className="grid grid-cols-2 gap-2">
+                {/* <div className="space-y-4"> */}
+                  {/* <h3 className="font-semibold text-foreground">Tech Stack I Work With:</h3> */}
+                  {/* <div className="grid grid-cols-2 gap-2">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                       Next.js + TypeScript
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                       FastAPI (Python)
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                       Kafka / Redpanda
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                       ClickHouse
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                       Dagster
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                       Apache Spark
-                    </div>
-                  </div>
-                </div>
+                    </div> */}
+                  {/* </div> */}
+                {/* </div> */}
               </div>
             </div>
           </div>
@@ -778,7 +778,7 @@ export default function PortfolioPage() {
                       </div>
                       <div className="flex flex-col items-start sm:items-end gap-1">
                         <Badge variant="secondary">GPA: 8.0/10</Badge>
-                        <span className="text-xs text-muted-foreground">Jun 2022 - Mar 2023</span>
+                        <span className="text-xs text-muted-foreground">Jun 2021 – Apr 2023</span>
                       </div>
                     </div>
                   </CardHeader>
@@ -797,7 +797,7 @@ export default function PortfolioPage() {
                       </div>
                       <div className="flex flex-col items-start sm:items-end gap-1">
                         <Badge variant="secondary">GPA: 7.55/10</Badge>
-                        <span className="text-xs text-muted-foreground">Mar 2019 - Jul 2021</span>
+                        <span className="text-xs text-muted-foreground">Jun 2018 – Apr 2021</span>
                       </div>
                     </div>
                   </CardHeader>
@@ -813,121 +813,6 @@ export default function PortfolioPage() {
         </section>
         
         <Separator />
-
-        {/* Open Source Contributions Section */}
-        <section id="opensource" className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
-                  <GitPullRequest className="h-5 w-5 text-foreground" />
-                </div>
-                <h2 className="text-3xl font-bold text-foreground">Open Source Contributions</h2>
-              </div>
-              <p className="text-muted-foreground mb-8 max-w-2xl">
-                Contributing back to the tools that power modern data infrastructure. 
-                Active contributor to Apache Airflow and Dagster, focusing on performance improvements and new features.
-              </p>
-              <div className="grid gap-8">
-                {openSourceContributions.map((project) => (
-                  <Card key={project.project} className="bg-card/50 border-border/50 overflow-hidden">
-                    <CardHeader className="pb-4">
-                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                        <div className="flex items-start gap-4">
-                          <div className="h-12 w-12 rounded-lg bg-secondary/70 flex items-center justify-center shrink-0 overflow-hidden">
-                            <Code2 className="h-6 w-6 text-foreground" />
-                          </div>
-                          <div>
-                            <CardTitle className="text-xl mb-1">{project.project}</CardTitle>
-                            <CardDescription className="text-sm max-w-xl">
-                              {project.description}
-                            </CardDescription>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Button variant="outline" size="sm" asChild>
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
-                              <Github className="h-4 w-4 mr-2" />
-                              View Repo
-                            </a>
-                          </Button>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                      {/* Stats */}
-                      <div className="flex flex-wrap gap-6 pb-4 border-b border-border/50">
-                        <div className="flex items-center gap-2 text-sm">
-                          <GitPullRequest className="h-4 w-4 text-emerald-500" />
-                          <span className="font-semibold text-foreground">{project.stats.prs}</span>
-                          <span className="text-muted-foreground">Pull Requests</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <GitCommit className="h-4 w-4 text-sky-500" />
-                          <span className="font-semibold text-foreground">{project.stats.commits}</span>
-                          <span className="text-muted-foreground">Commits</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <Code2 className="h-4 w-4 text-amber-500" />
-                          <span className="font-semibold text-foreground">{project.stats.linesChanged}</span>
-                          <span className="text-muted-foreground">Lines Changed</span>
-                        </div>
-                      </div>
-
-                      {/* Contributions */}
-                      <div className="space-y-4">
-                        <h4 className="text-sm font-semibold text-foreground">Contributions</h4>
-                        <div className="grid gap-4">
-                          {project.contributions.map((contrib, i) => (
-                            <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
-                              <div className="shrink-0">
-                                <Badge 
-                                  variant="outline" 
-                                  className={
-                                    contrib.type === "Feature" 
-                                      ? "bg-emerald-500/10 text-emerald-500 border-emerald-500/30"
-                                      : contrib.type === "Bug Fix"
-                                      ? "bg-red-500/10 text-red-500 border-red-500/30"
-                                      : contrib.type === "Performance"
-                                      ? "bg-sky-500/10 text-sky-500 border-sky-500/30"
-                                      : "bg-amber-500/10 text-amber-500 border-amber-500/30"
-                                  }
-                                >
-                                  {contrib.type}
-                                </Badge>
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-start justify-between gap-2 mb-1">
-                                  <h5 className="text-sm font-medium text-foreground">{contrib.title}</h5>
-                                  <Badge variant="secondary" className="shrink-0 text-xs">
-                                    <CheckCircle2 className="h-3 w-3 mr-1" />
-                                    {contrib.status}
-                                  </Badge>
-                                </div>
-                                <p className="text-xs text-muted-foreground mb-2">{contrib.description}</p>
-                                <a 
-                                  href={contrib.prLink} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-xs font-mono text-primary hover:underline"
-                                >
-                                  <GitPullRequest className="h-3 w-3" />
-                                  View PR {contrib.pr}
-                                  <ExternalLink className="h-3 w-3" />
-                                </a>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-        
         <Separator />
         
         {/* Projects Section */}
@@ -1256,7 +1141,7 @@ export default function PortfolioPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              Built by Sunil - Senior Data Engineer
+              Built by Sunil - Data Engineer
             </p>
             <div className="flex items-center gap-4">
               <a 
