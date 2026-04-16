@@ -92,43 +92,6 @@ const openSourceContributions = [
       linesChanged: "2,400+"
     },
     link: "https://github.com/apache/airflow"
-  },
-  {
-    project: "Dagster",
-    logo: "https://dagster.io/images/brand/logos/dagster-primary-mark.svg",
-    description: "The modern data orchestration platform. Dagster integrates with the tools you already use and provides a unified control plane for your data pipelines.",
-    contributions: [
-      {
-        title: "Implemented Asset Lineage Export to OpenLineage",
-        type: "Feature",
-        description: "Added native support for exporting Dagster asset lineage to OpenLineage format, enabling cross-platform data lineage tracking.",
-        pr: "#15234",
-        prLink: "https://github.com/dagster-io/dagster/pull/15234",
-        status: "Merged"
-      },
-      {
-        title: "Optimized Partition Materialization Queries",
-        type: "Performance",
-        description: "Refactored partition materialization status queries to use batch fetching, reducing UI load times by 60% for assets with 1000+ partitions.",
-        pr: "#15891",
-        prLink: "https://github.com/dagster-io/dagster/pull/15891",
-        status: "Merged"
-      },
-      {
-        title: "Added Retry Policy Configuration for Resources",
-        type: "Feature",
-        description: "Implemented configurable retry policies for resource initialization, improving resilience for pipelines with external dependencies.",
-        pr: "#16102",
-        prLink: "https://github.com/dagster-io/dagster/pull/16102",
-        status: "Merged"
-      }
-    ],
-    stats: {
-      prs: 3,
-      commits: 8,
-      linesChanged: "1,800+"
-    },
-    link: "https://github.com/dagster-io/dagster"
   }
 ]
 
