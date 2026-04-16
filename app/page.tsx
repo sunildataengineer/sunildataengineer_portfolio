@@ -498,23 +498,17 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-2 pt-2">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="default" size="sm" asChild>
             <a href={project.github} target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4 mr-2" />
               View Code
             </a>
           </Button>
-          <Button variant="outline" size="sm">
-            <Play className="h-4 w-4 mr-2" />
-            Demo
-          </Button>
-          <Button variant="outline" size="sm">
-            <FileDown className="h-4 w-4 mr-2" />
-            Architecture PDF
-          </Button>
-          <Button variant="outline" size="sm">
-            <FileDown className="h-4 w-4 mr-2" />
-            Report
+          <Button variant="outline" size="sm" asChild>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <Play className="h-4 w-4 mr-2" />
+              Watch Demo
+            </a>
           </Button>
         </div>
       </CardContent>
@@ -654,6 +648,12 @@ export default function PortfolioPage() {
                 Data Engineer
               </h1>
               
+              <div className="mb-6 flex justify-center">
+                <Badge className="bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100">
+                  Available for Data Engineer roles in Bangalore · Open to Work
+                </Badge>
+              </div>
+              
               <p className="text-lg md:text-xl text-muted-foreground mb-2">
                 Kafka | Spark | Python | Fresher
               </p>
@@ -693,6 +693,19 @@ export default function PortfolioPage() {
                   </a>
                 </Button>
               </div>
+
+      {/* Floating Hire Me Button */}
+      <div className="fixed bottom-8 right-8 z-40">
+        <Button 
+          size="lg"
+          className="bg-teal-600 hover:bg-teal-700 text-white shadow-lg rounded-full"
+          asChild
+        >
+          <a href="mailto:sunildataengineer@outlook.com?subject=Data Engineer Role">
+            Hire Me
+          </a>
+        </Button>
+      </div>
             </div>
           </div>
         </section>
