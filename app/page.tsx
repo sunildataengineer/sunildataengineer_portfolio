@@ -735,35 +735,6 @@ export default function PortfolioPage() {
                     data contracts, and always considering the downstream consumer.
                   </p>
                 </div>
-                {/* <div className="space-y-4"> */}
-                  {/* <h3 className="font-semibold text-foreground">Tech Stack I Work With:</h3> */}
-                  {/* <div className="grid grid-cols-2 gap-2">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                      Next.js + TypeScript
-                    </div> */}
-                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                      FastAPI (Python)
-                    </div> */}
-                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                      Kafka / Redpanda
-                    </div> */}
-                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                      ClickHouse
-                    </div> */}
-                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                      Dagster
-                    </div> */}
-                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                      Apache Spark
-                    </div> */}
-                  {/* </div> */}
-                {/* </div> */}
               </div>
             </div>
           </div>
