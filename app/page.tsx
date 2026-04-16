@@ -725,7 +725,7 @@ export default function PortfolioPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    I&apos;m I am Data Engineer with expertise in building real-time streaming pipelines 
+                    I am a Data Engineer with expertise in building real-time streaming pipelines 
                     and data platforms. My focus is on creating reliable, scalable systems that handle 
                     millions of events while maintaining data quality and governance.
                   </p>
