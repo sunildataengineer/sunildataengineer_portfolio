@@ -45,7 +45,7 @@ const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "education", label: "Education" },
-  // { id: "opensource", label: "Open Source" },
+  { id: "opensource", label: "Open Source" },
   { id: "projects", label: "Projects" },
   { id: "skills", label: "Skills" },
   { id: "certifications", label: "Certifications" },
@@ -92,43 +92,6 @@ const openSourceContributions = [
       linesChanged: "2,400+"
     },
     link: "https://github.com/apache/airflow"
-  },
-  {
-    project: "Dagster",
-    logo: "https://dagster.io/images/brand/logos/dagster-primary-mark.svg",
-    description: "The modern data orchestration platform. Dagster integrates with the tools you already use and provides a unified control plane for your data pipelines.",
-    contributions: [
-      {
-        title: "Implemented Asset Lineage Export to OpenLineage",
-        type: "Feature",
-        description: "Added native support for exporting Dagster asset lineage to OpenLineage format, enabling cross-platform data lineage tracking.",
-        pr: "#15234",
-        prLink: "https://github.com/dagster-io/dagster/pull/15234",
-        status: "Merged"
-      },
-      {
-        title: "Optimized Partition Materialization Queries",
-        type: "Performance",
-        description: "Refactored partition materialization status queries to use batch fetching, reducing UI load times by 60% for assets with 1000+ partitions.",
-        pr: "#15891",
-        prLink: "https://github.com/dagster-io/dagster/pull/15891",
-        status: "Merged"
-      },
-      {
-        title: "Added Retry Policy Configuration for Resources",
-        type: "Feature",
-        description: "Implemented configurable retry policies for resource initialization, improving resilience for pipelines with external dependencies.",
-        pr: "#16102",
-        prLink: "https://github.com/dagster-io/dagster/pull/16102",
-        status: "Merged"
-      }
-    ],
-    stats: {
-      prs: 3,
-      commits: 8,
-      linesChanged: "1,800+"
-    },
-    link: "https://github.com/dagster-io/dagster"
   }
 ]
 
@@ -650,7 +613,7 @@ export default function PortfolioPage() {
               
               <div className="mb-6 flex justify-center">
                 <Badge className="bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100">
-                  Available for Data Engineer roles in Bangalore and Remote · Open to Work
+                  Available for Data Engineer roles in Bangalore · Open to Work
                 </Badge>
               </div>
               
@@ -725,7 +688,7 @@ export default function PortfolioPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    I am a Data Engineer with expertise in building real-time streaming pipelines 
+                    I&apos;m I am Data Engineer with expertise in building real-time streaming pipelines 
                     and data platforms. My focus is on creating reliable, scalable systems that handle 
                     millions of events while maintaining data quality and governance.
                   </p>
@@ -735,6 +698,35 @@ export default function PortfolioPage() {
                     data contracts, and always considering the downstream consumer.
                   </p>
                 </div>
+                {/* <div className="space-y-4"> */}
+                  {/* <h3 className="font-semibold text-foreground">Tech Stack I Work With:</h3> */}
+                  {/* <div className="grid grid-cols-2 gap-2">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      Next.js + TypeScript
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      FastAPI (Python)
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      Kafka / Redpanda
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      ClickHouse
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      Dagster
+                    </div> */}
+                    {/* <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      Apache Spark
+                    </div> */}
+                  {/* </div> */}
+                {/* </div> */}
               </div>
             </div>
           </div>
@@ -796,6 +788,95 @@ export default function PortfolioPage() {
         </div>
         </section>
         
+        <Separator />
+        <Separator />
+
+        {/* Open Source Section */}
+        <section id="opensource" className="py-20 bg-secondary/20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="h-10 w-10 rounded-lg bg-secondary flex items-center justify-center">
+                  <GitPullRequest className="h-5 w-5 text-foreground" />
+                </div>
+                <h2 className="text-3xl font-bold text-foreground">Open Source Contributions</h2>
+              </div>
+              
+              <div className="grid gap-8">
+                {openSourceContributions.map((contribution, idx) => (
+                  <Card key={idx} className="bg-card/50 border-border/50 overflow-hidden">
+                    <CardHeader>
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h3 className="text-2xl font-bold text-foreground">{contribution.project}</h3>
+                            <Badge variant="outline">Open Source</Badge>
+                          </div>
+                          <p className="text-muted-foreground">{contribution.description}</p>
+                        </div>
+                        <Button variant="outline" size="sm" asChild className="whitespace-nowrap">
+                          <a href={contribution.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            View Project
+                          </a>
+                        </Button>
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent className="space-y-6">
+                      {/* Contribution Stats */}
+                      <div className="grid grid-cols-3 gap-4 p-4 bg-secondary/30 rounded-lg">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-foreground">{contribution.stats.prs}</div>
+                          <div className="text-xs text-muted-foreground">Pull Requests</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-foreground">{contribution.stats.commits}</div>
+                          <div className="text-xs text-muted-foreground">Commits</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-foreground">{contribution.stats.linesChanged}</div>
+                          <div className="text-xs text-muted-foreground">Lines Changed</div>
+                        </div>
+                      </div>
+                      
+                      {/* Individual Contributions */}
+                      <div className="space-y-3">
+                        <h4 className="font-semibold text-foreground flex items-center gap-2">
+                          <Code2 className="h-4 w-4" />
+                          Notable Contributions
+                        </h4>
+                        <div className="space-y-3">
+                          {contribution.contributions.map((contrib, cidx) => (
+                            <div key={cidx} className="border border-border/50 rounded-lg p-4 hover:bg-secondary/10 transition-colors">
+                              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-2">
+                                <div>
+                                  <h5 className="font-medium text-foreground">{contrib.title}</h5>
+                                  <div className="flex items-center gap-2 mt-1">
+                                    <Badge variant="secondary" className="text-xs">{contrib.type}</Badge>
+                                    <Badge variant="outline" className="text-xs">{contrib.status}</Badge>
+                                  </div>
+                                </div>
+                                <Button variant="ghost" size="sm" asChild className="text-xs">
+                                  <a href={contrib.prLink} target="_blank" rel="noopener noreferrer">
+                                    PR {contrib.pr}
+                                    <ExternalLink className="h-3 w-3 ml-1" />
+                                  </a>
+                                </Button>
+                              </div>
+                              <p className="text-sm text-muted-foreground">{contrib.description}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Separator />
         <Separator />
         
