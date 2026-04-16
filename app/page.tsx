@@ -650,7 +650,7 @@ export default function PortfolioPage() {
               
               <div className="mb-6 flex justify-center">
                 <Badge className="bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100">
-                  Available for Data Engineer roles in Bangalore · Open to Work
+                  Available for Data Engineer roles in Bangalore and Remote · Open to Work
                 </Badge>
               </div>
               
