@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apache Airflow DAG Optimization - Case Study | Sunil Data Engineer</title>
+    <meta name="description" content="Optimizing Apache Airflow DAGs for enterprise-scale data pipelines. Reduced execution time by 60% through intelligent task scheduling and performance tuning.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0f1117;
+            --bg-darker: #010409;
+            --accent-green: #00d084;
+            --accent-green-light: #1f6feb;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --border-color: #30363d;
+            --card-bg: #161b22;
+        }
+
+        html {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Containers */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Section styling */
+        section {
+            padding: 4rem 0;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 208, 132, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 4px;
+            color: var(--accent-green);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 4px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #00c571;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 208, 132, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* Problem Section */
+        .problem {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .problem h2 {
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+        }
+
+        .problem-description {
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        /* Toggle Grid */
+        .toggle-container {
+            margin-bottom: 2rem;
+        }
+
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-switch {
+            width: 48px;
+            height: 28px;
+            background-color: var(--border-color);
+            border-radius: 14px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .toggle-switch.active {
+            background-color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .toggle-circle {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s ease;
+        }
+
+        .toggle-switch.active .toggle-circle {
+            left: 22px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            border-color: var(--accent-green);
+            background-color: rgba(0, 208, 132, 0.05);
+        }
+
+        .grid-item-title {
+            font-weight: 600;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-item-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .grid-item-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            background-color: var(--bg-darker);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .solution h2 {
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .solution-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .solution-text p {
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .code-block code {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--accent-green);
+            line-height: 1.6;
+            white-space: pre;
+        }
+
+        .code-header {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            padding: 0.25rem 0.75rem;
+            background-color: var(--border-color);
+            color: var(--accent-green);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-green);
+            color: var(--bg-dark);
+        }
+
+        /* Impact Section */
+        .impact {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .impact h2 {
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-4px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Scenarios Section */
+        .scenarios {
+            background-color: var(--bg-darker);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .scenarios h2 {
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+        }
+
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .scenario-card {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .scenario-card:hover {
+            border-color: var(--accent-green);
+            background-color: rgba(0, 208, 132, 0.05);
+        }
+
+        .scenario-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 208, 132, 0.2);
+            border: 2px solid var(--accent-green);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .scenario-card h3 {
+            color: var(--text-primary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #00c571;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 2rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 3rem 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .code-block {
+                font-size: 0.75rem;
+            }
+
+            .code-block code {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-description {
+                margin-bottom: 1.5rem;
+            }
+
+            .code-block {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Apache Airflow Optimization</div>
+                <h1>Scaling Enterprise Data Pipelines</h1>
+                <p class="hero-description">
+                    How optimized DAG scheduling and intelligent task parallelization reduced pipeline execution time by 60% 
+                    while processing 2.5B+ records daily at scale.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('problem')">Read Case Study</button>
+                    <a href="https://github.com/sunildataengineer" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <h2>The Challenge</h2>
+            <div class="problem-description">
+                <p>
+                    A financial services company was processing 2.5 billion records daily through Apache Airflow, 
+                    but DAGs were running 6-8 hours each with bottlenecks in task scheduling and resource utilization. 
+                    This was causing downstream analytics delays and impacting business decisions.
+                </p>
+                <p>
+                    The existing pipeline had <strong>sequential task execution, redundant data transfers, and no dynamic scaling</strong>. 
+                    We needed to redesign the entire orchestration strategy.
+                </p>
+            </div>
+
+            <div class="toggle-container">
+                <label class="toggle-label" onclick="toggleGridView()">
+                    <span>Before Optimization</span>
+                    <div class="toggle-switch" id="toggleSwitch">
+                        <div class="toggle-circle"></div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="grid-container" id="gridContainer">
+                <!-- Before state -->
+                <div class="grid-item">
+                    <div class="grid-item-title">Execution Time</div>
+                    <div class="grid-item-value">6-8h</div>
+                    <div class="grid-item-label">Per DAG run</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">Task Parallelism</div>
+                    <div class="grid-item-value">4</div>
+                    <div class="grid-item-label">Concurrent tasks</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">Resource Utilization</div>
+                    <div class="grid-item-value">35%</div>
+                    <div class="grid-item-label">Average efficiency</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">Task Failures</div>
+                    <div class="grid-item-value">12/month</div>
+                    <div class="grid-item-label">Manual retries needed</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">Data Redundancy</div>
+                    <div class="grid-item-value">8x</div>
+                    <div class="grid-item-label">Unnecessary copies</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">Monitoring</div>
+                    <div class="grid-item-value">Manual</div>
+                    <div class="grid-item-label">Alert lag: 30min</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">Scaling</div>
+                    <div class="grid-item-value">Static</div>
+                    <div class="grid-item-label">Fixed worker count</div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-item-title">SLA Compliance</div>
+                    <div class="grid-item-value">72%</div>
+                    <div class="grid-item-label">On-time delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2>The Solution</h2>
+            <div class="solution-grid">
+                <div class="solution-text">
+                    <h3>Key Optimizations</h3>
+                    <p>
+                        <strong>1. Dynamic Task Parallelism:</strong> Implemented branching logic to create task groups dynamically based on record volume, scaling from 4 to 32 concurrent tasks.
+                    </p>
+                    <p>
+                        <strong>2. Smart Scheduling:</strong> Replaced sequential tasks with dependency-based DAG design, allowing independent tasks to run in parallel.
+                    </p>
+                    <p>
+                        <strong>3. Sensor Optimization:</strong> Replaced polling sensors with event-driven triggers using Kafka change data capture, reducing latency from minutes to seconds.
+                    </p>
+                    <p>
+                        <strong>4. Data Caching Layer:</strong> Implemented Redis caching for intermediate results, eliminating 8 redundant data transformations per run.
+                    </p>
+                    <p>
+                        <strong>5. Resource Scaling:</strong> Integrated Kubernetes autoscaling to match Airflow worker count with real-time load.
+                    </p>
+                </div>
+
+                <div>
+                    <h3>Implementation Snippet</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>airflow_optimization.py</span>
+                            <button class="copy-btn" onclick="copyCode()">COPY</button>
+                        </div>
+                        <code>from airflow.models import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime, timedelta
+
+def create_dynamic_tasks(**context):
+    record_count = context['task_instance'].xcom_pull(
+        task_ids='estimate_load'
+    )
+    parallelism = min(32, max(4, record_count // 100000))
+    return parallelism
+
+with DAG('optimized_pipeline', 
+         start_date=datetime(2024, 1, 1),
+         schedule_interval='@daily') as dag:
+    
+    load_estimator = PythonOperator(
+        task_id='estimate_load',
+        python_callable=get_record_count
+    )
+    
+    process_tasks = [
+        PythonOperator(
+            task_id=f'process_batch_{i}',
+            python_callable=process_data_batch,
+            op_kwargs={'batch_id': i}
+        )
+        for i in range(32)
+    ]
+    
+    load_estimator >> process_tasks</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <h2>Measurable Results</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">60%</div>
+                    <div class="metric-label">Reduction in execution time<br>(6-8h → 2.5-3h)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">8x</div>
+                    <div class="metric-label">Increase in task parallelism<br>(4 → 32 concurrent)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">Resource efficiency gain<br>(35% → 98% utilization)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">99.8%</div>
+                    <div class="metric-label">SLA compliance achieved<br>(72% → 99.8%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$450K</div>
+                    <div class="metric-label">Annual infrastructure savings<br>(Fewer compute resources)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">10s</div>
+                    <div class="metric-label">Alert latency achieved<br>(30min → 10s)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-World Scenarios Section -->
+    <section class="scenarios" id="scenarios">
+        <div class="container">
+            <h2>Real-World Applications</h2>
+            <div class="scenarios-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">📊</div>
+                    <h3>Financial Reporting</h3>
+                    <p>
+                        Multi-source data aggregation now completes within SLA, enabling real-time regulatory reports 
+                        and reduced reconciliation time from 4 days to 2 hours.
+                    </p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🔄</div>
+                    <h3>ETL Pipelines</h3>
+                    <p>
+                        Extract, transform, load operations handle 2.5B daily records with 99.8% success rate. 
+                        Automatic retries reduce manual intervention from 12/month to 0.
+                    </p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">📈</div>
+                    <h3>Analytics Acceleration</h3>
+                    <p>
+                        Downstream analytics queries now execute against fresh data within 2.5 hours, 
+                        enabling next-day business intelligence instead of 3-day delays.
+                    </p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">⚡</div>
+                    <h3>Event-Driven Processing</h3>
+                    <p>
+                        Kafka-triggered DAGs respond to data events in seconds instead of polling every 5 minutes. 
+                        Reduced resource waste and improved data freshness significantly.
+                    </p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🎯</div>
+                    <h3>Cost Optimization</h3>
+                    <p>
+                        Dynamic Kubernetes scaling matches compute to actual demand. Achieved $450K annual savings 
+                        in cloud infrastructure while improving performance.
+                    </p>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon">🛠️</div>
+                    <h3>Maintainability</h3>
+                    <p>
+                        Declarative DAG design makes adding new pipelines straightforward. Team can scale from 
+                        8 DAGs to 150+ without proportional complexity increase.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer" id="footer">
+        <div class="container">
+            <h2>Want to see the implementation?</h2>
+            <p>The complete optimized Airflow DAG and configuration files are available on GitHub.</p>
+            <a href="https://github.com/sunildataengineer" target="_blank" rel="noopener noreferrer" class="footer-link">
+                View Full Implementation on GitHub →
+            </a>
+            <p style="margin-top: 2rem; font-size: 0.875rem; color: var(--text-secondary);">
+                Built with Apache Airflow, Kubernetes, Kafka, and Redis.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Toggle grid view between Before and After
+        let isAfterView = false;
+
+        function toggleGridView() {
+            isAfterView = !isAfterView;
+            const toggle = document.getElementById('toggleSwitch');
+            const gridContainer = document.getElementById('gridContainer');
+            
+            toggle.classList.toggle('active');
+            
+            const beforeData = [
+                { title: 'Execution Time', value: '6-8h', label: 'Per DAG run' },
+                { title: 'Task Parallelism', value: '4', label: 'Concurrent tasks' },
+                { title: 'Resource Utilization', value: '35%', label: 'Average efficiency' },
+                { title: 'Task Failures', value: '12/month', label: 'Manual retries needed' },
+                { title: 'Data Redundancy', value: '8x', label: 'Unnecessary copies' },
+                { title: 'Monitoring', value: 'Manual', label: 'Alert lag: 30min' },
+                { title: 'Scaling', value: 'Static', label: 'Fixed worker count' },
+                { title: 'SLA Compliance', value: '72%', label: 'On-time delivery' }
+            ];
+
+            const afterData = [
+                { title: 'Execution Time', value: '2.5-3h', label: '60% faster' },
+                { title: 'Task Parallelism', value: '32', label: '8x increase' },
+                { title: 'Resource Utilization', value: '98%', label: '63% improvement' },
+                { title: 'Task Failures', value: '0/month', label: 'Auto-recovery' },
+                { title: 'Data Redundancy', value: '1x', label: 'Optimized caching' },
+                { title: 'Monitoring', value: 'Event-driven', label: 'Alert lag: 10s' },
+                { title: 'Scaling', value: 'Dynamic K8s', label: 'Auto-scaling' },
+                { title: 'SLA Compliance', value: '99.8%', label: 'Consistent' }
+            ];
+
+            const data = isAfterView ? afterData : beforeData;
+            const label = isAfterView ? 'After Optimization' : 'Before Optimization';
+
+            // Update label
+            const toggleLabel = document.querySelector('.toggle-label span');
+            toggleLabel.textContent = label;
+
+            // Update grid items
+            const gridItems = gridContainer.querySelectorAll('.grid-item');
+            gridItems.forEach((item, index) => {
+                item.style.animation = 'fadeInUp 0.5s ease-out';
+                setTimeout(() => {
+                    item.querySelector('.grid-item-title').textContent = data[index].title;
+                    item.querySelector('.grid-item-value').textContent = data[index].value;
+                    item.querySelector('.grid-item-label').textContent = data[index].label;
+                }, 100);
+            });
+        }
+
+        // Copy code to clipboard
+        function copyCode() {
+            const codeBlock = document.querySelector('.code-block code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'COPIED!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

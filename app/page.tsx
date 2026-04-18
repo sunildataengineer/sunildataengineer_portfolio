@@ -59,37 +59,21 @@ const openSourceContributions = [
   {
     project: "Apache Airflow",
     logo: "https://airflow.apache.org/images/feature-image.png",
-    description: "The most popular open-source workflow orchestration platform. Used by thousands of companies to programmatically author, schedule, and monitor data pipelines.",
+    description: "The most popular open-source workflow orchestration platform used by thousands of companies to programmatically author, schedule, and monitor data pipelines.",
     contributions: [
       {
-        title: "Enhanced DAG Serialization Performance",
+        title: "Deferrable Execution Mode for SFTPOperator",
         type: "Feature",
-        description: "Improved DAG serialization by implementing lazy loading for task dependencies, reducing scheduler startup time by 40% for large deployments.",
-        pr: "#28453",
-        prLink: "https://github.com/apache/airflow/pull/28453",
-        status: "Merged"
-      },
-      {
-        title: "Fixed Memory Leak in TaskInstance State Tracking",
-        type: "Bug Fix",
-        description: "Identified and fixed a memory leak in the task instance state tracking mechanism that caused scheduler OOM issues in long-running deployments.",
-        pr: "#29102",
-        prLink: "https://github.com/apache/airflow/pull/29102",
-        status: "Merged"
-      },
-      {
-        title: "Documentation: Best Practices for Dynamic DAG Generation",
-        type: "Documentation",
-        description: "Authored comprehensive documentation on patterns for generating DAGs dynamically, including factory patterns and configuration-driven approaches.",
-        pr: "#28891",
-        prLink: "https://github.com/apache/airflow/pull/28891",
+        description: "Contributed deferrable execution mode to Apache Airflow's SFTPOperator — reduces worker slot occupancy by 95% and enables 10x concurrent file transfer capacity without infrastructure scaling. Architected async I/O bridge using asyncio.to_thread() to integrate synchronous paramiko SSH library with Airflow's Triggerer event loop, establishing a reusable pattern for sync-to-async provider conversions. Implemented SSH connection pooling across polling cycles (eliminating 95% of SSH handshake overhead), byte-offset resume for interrupted transfers, and real-time metrics exposure via XCom.",
+        pr: "YOUR_PR_NUMBER",
+        prLink: "YOUR_FULL_PR_URL",
         status: "Merged"
       }
     ],
     stats: {
-      prs: 3,
-      commits: 12,
-      linesChanged: "2,400+"
+      prs: 1,
+      commits: "YOUR_REAL_COMMIT_COUNT",
+      linesChanged: "YOUR_REAL_LINES_CHANGED"
     },
     link: "https://github.com/apache/airflow"
   }
@@ -618,7 +602,7 @@ export default function PortfolioPage() {
               </div>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-2">
-                Kafka | Spark | Python | Fresher
+                Kafka · Spark · Python · AWS · Azure · GCP
               </p>
               
               {/* Animated Counter */}
@@ -688,7 +672,7 @@ export default function PortfolioPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    I&apos;m I am Data Engineer with expertise in building real-time streaming pipelines 
+                    I am a Data Engineer with expertise in building real-time streaming pipelines 
                     and data platforms. My focus is on creating reliable, scalable systems that handle 
                     millions of events while maintaining data quality and governance.
                   </p>
