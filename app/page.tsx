@@ -64,16 +64,16 @@ const openSourceContributions = [
       {
         title: "Deferrable Execution Mode for SFTPOperator",
         type: "Feature",
-        description: "Contributed deferrable execution mode to Apache Airflow's SFTPOperator — reduces worker slot occupancy by 95% and enables 10x concurrent file transfer capacity without infrastructure scaling. Architected async I/O bridge using asyncio.to_thread() to integrate synchronous paramiko SSH library with Airflow's Triggerer event loop, establishing a reusable pattern for sync-to-async provider conversions. Implemented SSH connection pooling across polling cycles (eliminating 95% of SSH handshake overhead), byte-offset resume for interrupted transfers, and real-time metrics exposure via XCom.",
-        pr: "YOUR_PR_NUMBER",
-        prLink: "YOUR_FULL_PR_URL",
-        status: "Merged"
+        description: "Contributed deferrable execution mode to Apache Airflow's SFTPOperator — reduces worker slot occupancy by 95% and enables 10x concurrent file transfer capacity without infrastructure scaling. Architected async I/O bridge using asyncio.to_thread() to integrate synchronous paramiko SSH library with Airflow's Triggerer event loop, establishing a reusable pattern for sync-to-async provider conversions. Implemented SSH connection pooling across polling cycles, byte-offset resume for interrupted transfers, and real-time metrics via XCom.",
+        pr: "#65480",
+        prLink: "https://github.com/apache/airflow/pull/65480",
+        status: "Open"
       }
     ],
     stats: {
       prs: 1,
-      commits: "YOUR_REAL_COMMIT_COUNT",
-      linesChanged: "YOUR_REAL_LINES_CHANGED"
+      commits: 3,
+      linesChanged: "191+"
     },
     link: "https://github.com/apache/airflow"
   }
